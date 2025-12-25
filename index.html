@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tabber</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #eaeaea;
+    margin: 0;
+    padding: 16px;
+  }
+
+  .tabber {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .tab-buttons {
+    display: flex;
+    border-bottom: 2px solid #333;
+    margin-bottom: 12px;
+  }
+
+  .tab-buttons button {
+    background: #1b1b1b;
+    color: #ccc;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    border-right: 1px solid #333;
+  }
+
+  .tab-buttons button.active {
+    background: #262626;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 2px solid #4aa3ff;
+  }
+
+  .tab-content {
+    display: none;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="tabber">
+  <div class="tab-buttons">
+    <button class="active" onclick="openTab(0)">Overview</button>
+    <button onclick="openTab(1)">Strategy</button>
+    <button onclick="openTab(2)">Builds</button>
+    <button onclick="openTab(3)">Tips</button>
+  </div>
+
+  <div class="tab-content active">
+    <h2>Overview</h2>
+    <p>High-level description of the class, role, and strengths.</p>
+  </div>
+
+  <div class="tab-content">
+    <h2>Rotations</h2>
+    <pre style="font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.2; display: inline-block; text-align: left; color: #dfe7ff; background-color: #080f13; padding: 10px; border-radius: 6px;">
+
+                                  ┌──────────────────────────┐
+                                  │        Stealth Prep      │
+                                  │ Sneak/Hide in Plain Sight│
+                                  └─────────────┬────────────┘
+                                                │
+                                                ▼
+                                          [AIM]  (100% crit)
+                                                │
+                                                ▼
+                 ┌──────────────────────────────┴──────────────────────────────┐
+                 │                                                             │
+                 ▼                                                             ▼
+        [WELL-PLACED STRIKE] (WPS)                                     [SURPRISE STRIKE]
+         Big stealth hit + bleed                                   Fast opener, high crit rate
+                 │                                                             │
+                 └──────────────┬────────────────────────────────┬─────────────┘
+                                ▼                                ▼
+                        [CUNNING ATTACK] (CA)                [PROVOKE] 
+                       Bleed + phys/tact debuff          +20% crit chance
+                                │                     (Keep rolling this buff)
+                                ▼
+                      [DOUBLE-EDGED STRIKE] (DES)
+                    Triggered by any critical hit
+                                │
+         ┌──────────────────────┼───────────────────────────────┬────────────────────────┐
+         ▼                      ▼                               ▼                        ▼                  
+ [RETURN STRIKE]        [FLASHING BLADES]                [EXPOSED THROAT]           [PERFORATE]
+  +15% dmg buffs          AoE finisher                    Strong finisher          Multi-hit builder
+ (Use first to buff)     (Dual hit; converts)             (After Return)           Stacks +crit/dmg
+                          Provoke → Wide
+         │                      │                               │                        │
+         └──────────────────────┴───────────────┬───────────────┴────────────────────────┘
+                                                │
+                                                ▼
+                                         [SUBTLE STAB] (Filler)
+                                 Fast animation, helps reset cooldowns
+                                                │
+                                                ▼
+                                      [REAPPLY CUNNING ATTACK]
+                                   Maintain bleed and mitigation debuff
+                                                │
+                           ┌────────────────────┴────────────────────┐
+                           ▼                                         ▼
+                   [AIM Ready Again]                         [AIM on Cooldown]
+                   (Restart burst)                           (Use Feint / Coup)
+                           │                                         │
+                           ▼                                         ▼
+               [Sneak / Stay Engaged]                    [Improved Feint Attack] (IFA)
+                (Stealth if safe)                           “Acts as from Stealth” 10s
+                                                                     │
+                                                                     ▼
+                                                           [WELL-PLACED STRIKE]
+                                                       (Stealth-enabled hit + bleed)
+                                                                     │
+                                                                     ▼
+                                                           [REJOIN MAIN CHAIN FLOW]
+                                                                     │
+                                                                     ▼
+                                                          [COUP DE GRÂCE] (every 45s)
+                                              “Acts as from Stealth” + +20% Melee Damage
+                                          Refreshes cooldowns faster; enables WPS + SS burst
+
+</pre>
+  </div>
+
+  <div class="tab-content">
+    <h2>Builds</h2>
+    <p>Talent paths, stat focus, and variations.</p>
+  </div>
+
+  <div class="tab-content">
+    <h2>Tips</h2>
+    <p>Advanced tricks, mistakes to avoid, and optimizations.</p>
+  </div>
+</div>
+
+<script>
+  function openTab(index) {
+    const buttons = document.querySelectorAll('.tab-buttons button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+    contents.forEach(tab => tab.classList.remove('active'));
+
+    buttons[index].classList.add('active');
+    contents[index].classList.add('active');
+  }
+</script>
+
+</body>
+</html>
+
+
