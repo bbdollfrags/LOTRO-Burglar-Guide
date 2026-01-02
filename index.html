@@ -4,80 +4,83 @@
 <meta charset="UTF-8">
 <title>Tabber</title>
 <style>
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #080f13;
+  color: #cccccc;
+  margin: 0;
+  padding: 16px;
+}
 
-  /* Tooltip Style */
-
-  .tooltip {
+/* Tooltip Style */
+.tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
   cursor: pointer;
+  border-bottom: 1px dotted #ccc;
 }
 
 .tooltiptext {
   visibility: hidden;
-  width: 130px;
+  width: 140px;
   background-color: black;
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 5px 0;
+  padding: 6px;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
+  bottom: 125%;  /* Position above the element */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
-  body {
-    font-family: Arial, sans-serif;
-    background: #080f13;
-    color: #cccccc;
-    margin: 0;
-    padding: 16px;
-  }
+  opacity: 1;
+}
 
 /* Tabber */
+.tabber {
+  max-width: 900px;
+  margin: auto;
+}
 
-  .tabber {
-    max-width: 900px;
-    margin: auto;
-  }
+.tab-buttons {
+  display: flex;
+  border-bottom: 2px solid #333;
+  margin-bottom: 12px;
+}
 
-  .tab-buttons {
-    display: flex;
-    border-bottom: 2px solid #333;
-    margin-bottom: 12px;
-  }
+.tab-buttons button {
+  background: #1b1b1b;
+  color: #ccc;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-right: 1px solid #333;
+}
 
-  .tab-buttons button {
-    background: #1b1b1b;
-    color: #ccc;
-    border: none;
-    padding: 10px 16px;
-    cursor: pointer;
-    font-size: 14px;
-    border-right: 1px solid #333;
-  }
+.tab-buttons button.active {
+  background: #262626;
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.7);
+}
 
-  .tab-buttons button.active {
-    background: #262626;
-    color: #fff;
-    font-weight: bold;
-    border-bottom: 2px solid rgb(255, 255, 255);
+.tab-content {
+  display: none;
+  padding: 12px;
+}
 
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.7)
-    
-  }
-
-  .tab-content {
-    display: none;
-    padding: 12px;
-  }
-
-  .tab-content.active {
-    display: block;
-  }
-
+.tab-content.active {
+  display: block;
+}
 </style>
 </head>
 <body>
