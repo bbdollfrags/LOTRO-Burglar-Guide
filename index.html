@@ -4,6 +4,30 @@
 <meta charset="UTF-8">
 <title>Tabber</title>
 <style>
+
+  /* Tooltip Style */
+
+  .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  cursor: pointer;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 130px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
   body {
     font-family: Arial, sans-serif;
     background: #080f13;
@@ -11,6 +35,8 @@
     margin: 0;
     padding: 16px;
   }
+
+/* Tabber */
 
   .tabber {
     max-width: 900px;
@@ -51,6 +77,7 @@
   .tab-content.active {
     display: block;
   }
+
 </style>
 </head>
 <body>
@@ -66,11 +93,13 @@
   </div>
 
   <div class="tab-content active">
-    <h2>Armour</h2>
-      <p>Virtues,Traits,Strategy are working</p>
-      <br>
+    <h2></h2>
+      <p>Linala is working on developing a system to display this info, the other tabs are working</p>
      <img
     src= "https://raw.githubusercontent.com/bbdollfrags/Lotro_CossWeb-v.1.0-beta/main/Cursor_Windows_Vista.gif">
+    <div class="tooltip">Hover over me
+  <span class="tooltiptext">Some tooltip text</span>
+</div>
   </div>
 
   <div class="tab-content">
